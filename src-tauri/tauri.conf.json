@@ -30,7 +30,7 @@
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDc3OTQ4RkYwMTlCRTNFRTcKUldUblByNFo4SStVZDRlUkRmYzBnVkR1akRobi96RHdHNUh2ZkdRbFc4Zk9EMDR5ZWVHQ0NJNkMK",
       "endpoints": [
-        "https://github.com/Akemeyn/yarikonomi/releases/latest/download/latest.json"
+        "https://github.com/atifereny/yarikonomi/releases/latest/download/latest.json"
       ],
       "windows": { "installMode": "passive" }
     }

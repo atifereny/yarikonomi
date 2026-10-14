@@ -1,4 +1,4 @@
-# Yeni sürüm yayınlar: derler, imzalar, latest.json üretir ve GitHub Release oluşturur.
+﻿# Yeni sürüm yayınlar: derler, imzalar, latest.json üretir ve GitHub Release oluşturur.
 # Kullanım:  powershell -File scripts\release.ps1 [-Notes "Sürüm notu"]
 # Önce src-tauri\tauri.conf.json, src-tauri\Cargo.toml ve package.json içindeki sürümü artırın.
 param([string]$Notes = "")
@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 Set-Location (Split-Path $PSScriptRoot -Parent)
 $env:Path += ";$env:USERPROFILE\.cargo\bin"
 
-$repo = "Akemeyn/yarikonomi"
+$repo = "atifereny/yarikonomi"
 $conf = Get-Content src-tauri\tauri.conf.json -Raw -Encoding UTF8 | ConvertFrom-Json
 $version = $conf.version
 $tag = "v$version"
@@ -30,7 +30,9 @@ $out = "release-out"
 New-Item -ItemType Directory -Force $out | Out-Null
 $exeName = "Yarikonomi_${version}_x64-setup.exe"
 Copy-Item $src.FullName "$out\$exeName" -Force
-Copy-Item "$($src.FullName).sig" "$out\$exeName.sig" -Force
+$sig = Get-ChildItem $dir -Filter "*_${version}_x64-setup.exe.sig" | Select-Object -First 1
+if (-not $sig) { throw "İmza dosyası bulunamadı" }
+Copy-Item $sig.FullName "$out\$exeName.sig" -Force
 
 $latest = [ordered]@{
   version   = $version

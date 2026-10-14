@@ -111,7 +111,7 @@ src-tauri/src/
 
 ## Sürüm yayınlama ve otomatik güncelleme
 
-- Uygulama her açılışta GitHub'daki son sürümü denetler (`https://github.com/Akemeyn/yarikonomi/releases/latest/download/latest.json`). Yeni sürüm varsa köşede "Şimdi güncelle" kartı çıkar; ağ yoksa sessizce geçilir. Ayarlar > Güncelleme bölümünden elle de denetlenebilir.
+- Uygulama her açılışta GitHub'daki son sürümü denetler (`https://github.com/atifereny/yarikonomi/releases/latest/download/latest.json`). Yeni sürüm varsa köşede "Şimdi güncelle" kartı çıkar; ağ yoksa sessizce geçilir. Ayarlar > Güncelleme bölümünden elle de denetlenebilir.
 - Güncelleme paketleri imzalıdır. Açık anahtar `tauri.conf.json` içindedir; **gizli anahtar** `%USERPROFILE%\.tauri\yarikonomi.key` dosyasında durur, depoya girmez. Kaybedilirse mevcut kurulumlara güncelleme gönderilemez, bu yüzden yedekleyin.
 - Yeni sürüm: `src-tauri	auri.conf.json`, `src-tauri\Cargo.toml` ve `package.json` içindeki sürümü artırın, sonra `powershell -File scriptselease.ps1 -Notes "Neler değişti"` çalıştırın. Betik test eder, derler, imzalar, `latest.json` üretir ve GitHub Release oluşturur (`gh` kurulu ve giriş yapılmış olmalı).
 - Güncelleme için deponun **herkese açık** olması gerekir (uygulama indirirken giriş yapamaz).

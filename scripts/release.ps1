@@ -23,14 +23,14 @@ npm run tauri build
 if ($LASTEXITCODE) { throw "Derleme başarısız" }
 
 $dir = "src-tauri\target\release\bundle\nsis"
-$src = Get-ChildItem $dir -Filter "*_${version}_x64-setup.exe" | Select-Object -First 1
+$src = Get-ChildItem $dir -Filter "$($conf.productName)_${version}_x64-setup.exe" | Select-Object -First 1
 if (-not $src) { throw "Kurulum dosyası bulunamadı" }
 # GitHub ASCII olmayan karakterleri dosya adından siler; ASCII adla yüklenir
 $out = "release-out"
 New-Item -ItemType Directory -Force $out | Out-Null
 $exeName = "Yarikonomi_${version}_x64-setup.exe"
 Copy-Item $src.FullName "$out\$exeName" -Force
-$sig = Get-ChildItem $dir -Filter "*_${version}_x64-setup.exe.sig" | Select-Object -First 1
+$sig = Get-ChildItem $dir -Filter "$($conf.productName)_${version}_x64-setup.exe.sig" | Select-Object -First 1
 if (-not $sig) { throw "İmza dosyası bulunamadı" }
 Copy-Item $sig.FullName "$out\$exeName.sig" -Force
 

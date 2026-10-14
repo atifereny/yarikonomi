@@ -387,7 +387,12 @@ export function SettingsView() {
           </Row>
         </Group>
 
-        <p className="text-center text-[12px] text-label3 mt-8">
+        <img
+          src="/logo.svg"
+          alt=""
+          className="mx-auto mt-8 w-12 h-12 rounded-[11px] shadow-card"
+        />
+        <p className="text-center text-[12px] text-label3 mt-2">
           Yarıkonomi · Şema v{info.schema_version}
         </p>
       </div>

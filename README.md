@@ -69,7 +69,7 @@ npm run tauri build
 
 Çıktılar:
 
-- NSIS: `src-tauri\target\release\bundle\nsis\Muhasebe_0.1.0_x64-setup.exe`
+- NSIS: `src-tauri\target\release\bundle\nsis\Muhasebe_0.1.1_x64-setup.exe`
 
 Tauri, NSIS ve WiX araçlarını ilk derlemede kendisi indirir; bu yüzden ilk derlemede internet bağlantısı gerekir. Yalnızca birini üretmek için:
 
@@ -113,6 +113,7 @@ src-tauri/src/
 
 - Uygulama her açılışta GitHub'daki son sürümü denetler (`https://github.com/atifereny/yarikonomi/releases/latest/download/latest.json`). Yeni sürüm varsa köşede "Şimdi güncelle" kartı çıkar; ağ yoksa sessizce geçilir. Ayarlar > Güncelleme bölümünden elle de denetlenebilir.
 - Güncelleme paketleri imzalıdır. Açık anahtar `tauri.conf.json` içindedir; **gizli anahtar** `%USERPROFILE%\.tauri\yarikonomi.key` dosyasında durur, depoya girmez. Kaybedilirse mevcut kurulumlara güncelleme gönderilemez, bu yüzden yedekleyin.
-- Yeni sürüm: `src-tauri	auri.conf.json`, `src-tauri\Cargo.toml` ve `package.json` içindeki sürümü artırın, sonra `powershell -File scriptselease.ps1 -Notes "Neler değişti"` çalıştırın. Betik test eder, derler, imzalar, `latest.json` üretir ve GitHub Release oluşturur (`gh` kurulu ve giriş yapılmış olmalı).
+- Yeni sürüm: `src-tauri	auri.conf.json`, `src-tauri\Cargo.toml` ve `package.json` içindeki sürümü artırın, sonra `powershell -File scripts
+elease.ps1 -Notes "Neler değişti"` çalıştırın. Betik test eder, derler, imzalar, `latest.json` üretir ve GitHub Release oluşturur (`gh` kurulu ve giriş yapılmış olmalı).
 - Güncelleme için deponun **herkese açık** olması gerekir (uygulama indirirken giriş yapamaz).
 - Veri klasörü eski adıyla (`Belgeler\Muhasebe`) kalır; ad değişikliği verilerinizi etkilemez.

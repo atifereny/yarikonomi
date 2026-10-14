@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Yarıkonomi",
+  "version": "0.1.0",
+  "identifier": "com.yarikan.yarikonomi",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Yarıkonomi",
+        "width": 1180,
+        "height": 800,
+        "minWidth": 860,
+        "minHeight": 600,
+        "center": true
+      }
+    ],
+    "security": {
+      "devCsp": null,
+      "csp": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src ipc: http://ipc.localhost https://github.com https://*.githubusercontent.com; frame-src blob:; child-src blob:; object-src blob:"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDc3OTQ4RkYwMTlCRTNFRTcKUldUblByNFo4SStVZDRlUkRmYzBnVkR1akRobi96RHdHNUh2ZkdRbFc4Zk9EMDR5ZWVHQ0NJNkMK",
+      "endpoints": [
+        "https://github.com/Akemeyn/yarikonomi/releases/latest/download/latest.json"
+      ],
+      "windows": { "installMode": "passive" }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "createUpdaterArtifacts": true,
+    "publisher": "Kişisel",
+    "shortDescription": "Alacak / verecek takibi",
+    "category": "Finance",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "languages": ["Turkish"],
+        "installMode": "currentUser"
+      },
+      "wix": {
+        "language": "tr-TR"
+      }
+    }
+  }
+}

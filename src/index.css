@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* iOS sistem renkleri */
+:root {
+  --ios-bg: #f2f2f7;
+  --ios-card: #ffffff;
+  --ios-elevated: #ffffff;
+  --ios-sidebar: rgba(246, 246, 248, 0.82);
+  --ios-label: #000000;
+  --ios-label2: rgba(60, 60, 67, 0.6);
+  --ios-label3: rgba(60, 60, 67, 0.3);
+  --ios-sep: rgba(60, 60, 67, 0.16);
+  --ios-fill: rgba(120, 120, 128, 0.12);
+  --ios-fill2: rgba(120, 120, 128, 0.2);
+  --ios-green: #34c759;
+  --ios-red: #ff3b30;
+  --ios-blue: #007aff;
+  --ios-orange: #ff9500;
+  --ios-yellow: #ffcc00;
+  --ios-gray: #8e8e93;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-pop: 0 10px 40px rgba(0, 0, 0, 0.18);
+  color-scheme: light;
+}
+
+.dark {
+  --ios-bg: #000000;
+  --ios-card: #1c1c1e;
+  --ios-elevated: #2c2c2e;
+  --ios-sidebar: rgba(28, 28, 30, 0.82);
+  --ios-label: #ffffff;
+  --ios-label2: rgba(235, 235, 245, 0.6);
+  --ios-label3: rgba(235, 235, 245, 0.3);
+  --ios-sep: rgba(84, 84, 88, 0.55);
+  --ios-fill: rgba(120, 120, 128, 0.24);
+  --ios-fill2: rgba(120, 120, 128, 0.36);
+  --ios-green: #30d158;
+  --ios-red: #ff453a;
+  --ios-blue: #0a84ff;
+  --ios-orange: #ff9f0a;
+  --ios-yellow: #ffd60a;
+  --ios-gray: #8e8e93;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-pop: 0 10px 40px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--ios-bg);
+  --color-card: var(--ios-card);
+  --color-elevated: var(--ios-elevated);
+  --color-sidebar: var(--ios-sidebar);
+  --color-label: var(--ios-label);
+  --color-label2: var(--ios-label2);
+  --color-label3: var(--ios-label3);
+  --color-sep: var(--ios-sep);
+  --color-fill: var(--ios-fill);
+  --color-fill2: var(--ios-fill2);
+  --color-green: var(--ios-green);
+  --color-red: var(--ios-red);
+  --color-blue: var(--ios-blue);
+  --color-orange: var(--ios-orange);
+  --color-yellow: var(--ios-yellow);
+  --color-gray: var(--ios-gray);
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", system-ui,
+    sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ios-bg);
+  color: var(--ios-label);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+}
+
+input,
+textarea,
+select {
+  user-select: text;
+  font: inherit;
+  color: inherit;
+}
+
+.selectable {
+  user-select: text;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* İnce, iOS benzeri kaydırma çubukları */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ios-fill2);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ios-blue);
+  outline-offset: 2px;
+}
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* iOS "liquid glass" yüzey: yarı saydam, bulanık, kenarında ışık yansıması */
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.24));
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 10px 36px rgba(0, 0, 0, 0.16),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.35);
+}
+.dark .glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06));
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 10px 36px rgba(0, 0, 0, 0.55),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.28),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.08);
+}
+.glass-lens {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.4));
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.14),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+.dark .glass-lens {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14));
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Kaydırılan alanın üst kenarında yumuşak solma */
+.fade-top {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+}
+
+/* Renk körü modu: mavi / turuncu paleti (Okabe-Ito) ve renge bağlı olmayan işaretler */
+.cb {
+  --ios-green: #0072b2;
+  --ios-red: #d55e00;
+  --ios-orange: #cc79a7;
+  --ios-yellow: #f0e442;
+  --ios-blue: #5b5bd6;
+}
+.cb.dark {
+  --ios-green: #56b4e9;
+  --ios-red: #ff8a3d;
+  --ios-orange: #e58fc0;
+  --ios-yellow: #f0e442;
+  --ios-blue: #8e8eff;
+}
+/* Verecek: kare nokta, eksi günler: çizgili zemin — renk görmeden de ayırt edilir */
+.cb .dot-neg {
+  border-radius: 2px;
+}
+.cb .day-neg {
+  background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgba(255, 255, 255, 0.4) 3px 5px);
+}
+
+/* Ay ekranı: duvar takvimi tarzı. Her ay hücresi kendi boyutuna göre ölçeklenir. */
+.year-cell {
+  container-type: size;
+  --dc: min(calc(100cqw / 7 * 0.84), calc(100cqh / 8.8 * 0.88));
+}
+.year-digit {
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
